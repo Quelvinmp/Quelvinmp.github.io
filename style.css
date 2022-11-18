@@ -26,6 +26,14 @@ div {
     padding: 10px;
 }
 
-.abilitieslist li:nth-child(odd) {
+.abilitieslist1 li:nth-child(odd) {
     text-decoration: underline;
+}
+
+#htmllogo {
+    width: 30px;
+}
+
+#csslogo {
+    width: 30px;
 }
