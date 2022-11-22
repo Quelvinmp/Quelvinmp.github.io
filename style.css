@@ -3,11 +3,20 @@
     padding: 0;
     box-sizing: border-box;
     color: white;
+    /* font-size: 24px; */
 }
+
+#topo {
+    position: absolute
+    visibility: hidden;
+}
+
 /* Header */
 header {
     display: flex;
-    background-color: #001d3d;
+    position: fixed;
+    width: 100%;
+    background-color: #001221;
     height: 64px;
     justify-content: space-between;
 }
@@ -27,12 +36,14 @@ header nav ul{
 
 header nav ul li a{
     text-decoration: none;
+    font-weight: bolder;
 }
 
 /* Body */
 
 body{
-    background-color: #001233;
+    background-image: linear-gradient(to top, #001845, #001233, #001233, #000000);
+    
 }
 
 /* Main */
@@ -43,20 +54,114 @@ main section{
     margin: 0 auto;
 }
 
-img{
+main section .myphoto{
     border-radius: 50%;
+    border: 5px #4a4e69 solid;
     width: 200px;
-    margin: 64px auto 32px;
+    margin: 80px auto 8px;
 }
 
-main section p{
+main section .second-infos{
+    font-size: 16px;
+    margin: 0px;
     text-align: center;
-    margin: 8px;
+}
+
+main section .main-infos{
+    text-align: center;
+    margin-top: 48px;
+    font-size: 24px;
 }
 
 /* Article */
 
-/* main article{
+main .article-skills{
+    margin-top: 150px;
     display: flex;
-} */
+    justify-content: center;
+    gap: 300px;    
+    font-weight: bolder;
+}
+
+/* Article Soft Skills*/
+
+main .article-skills .SS h2{
+    text-align: center;
+}
+
+main .article-skills .SS ul li:nth-child(1){
+    margin-top: 16px;
+}
+
+main .article-skills .SS ul li{
+    margin: 8px 0;
+    text-align: center;
+    list-style: none;
+}
+
+/* Article Hard Skills */
+
+main .article-skills img{
+    width: 30px;
+}
+
+main .article-skills .HS {
+    text-align: center;
+}
+
+main .article-skills .HS li{
+    list-style: none;
+}
+
+.hs-list{
+    display: flex;
+}
+
+.hs-list div{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 16px;
+}
+
+.hs-list div li{
+    margin: auto 0;
+}
+
+/* Navigation */
+
+main nav ul{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 32px
+}
+
+nav ul li{
+    list-style: none;
+    text-decoration: none;
+}
+
+nav ul li .fa-brands{
+    font-size: 40px;
+}
+
+nav ul li .fa-brands:hover{
+    color: #0b388d;
+}
+
+/* Footer */
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    background-color: #001221;
+    margin-top: 32px;
+    height: 48px;
+}
+
+footer p{
+    align-self: center;
+    margin: 16px;
+}
 
