@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     color: white;
+    /* font-size: 24px; */
 }
 /* Header */
 header {
@@ -51,35 +52,42 @@ main section #myphoto{
     border-radius: 50%;
     border: 5px #4a4e69 solid;
     width: 200px;
-    margin: 80px auto 32px;
+    margin: 80px auto 8px;
 }
 
-main section p{
-    font-size: 24px;
+main section .second-infos{
+    font-size: 16px;
+    margin: 0px;
     text-align: center;
-    margin: 8px;
+}
+
+main section .main-infos{
+    text-align: center;
+    margin-top: 48px;
+    font-size: 24px;
 }
 
 /* Article */
 
-main #article-skills{
-    margin-top: 100px;
+main .article-skills{
+    margin-top: 150px;
     display: flex;
     justify-content: center;
     gap: 300px;    
+    font-weight: bolder;
 }
 
 /* Article Soft Skills*/
 
-main #article-skills div h2{
+main .article-skills .SS h2{
     text-align: center;
 }
 
-main #article-skills div ul li:nth-child(1){
+main .article-skills .SS ul li:nth-child(1){
     margin-top: 16px;
 }
 
-main #article-skills div ul li{
+main .article-skills .SS ul li{
     margin: 8px 0;
     text-align: center;
     list-style: none;
@@ -87,6 +95,29 @@ main #article-skills div ul li{
 
 /* Article Hard Skills */
 
-main #article-skills img{
-    width: 50px;
+main .article-skills img{
+    width: 30px;
+}
+
+main .article-skills .HS {
+    text-align: center;
+}
+
+main .article-skills .HS li{
+    list-style: none;
+}
+
+.hs-list{
+    display: flex;
+}
+
+.hs-list div{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 16px;
+}
+
+.hs-list div li{
+    margin: auto 0;
 }
