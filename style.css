@@ -121,3 +121,27 @@ main .article-skills .HS li{
 .hs-list div li{
     margin: auto 0;
 }
+
+/* Navigation */
+
+main nav ul{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 32px
+}
+
+nav ul li{
+    list-style: none;
+    text-decoration: none;
+}
+
+nav ul li .fa-brands{
+    font-size: 40px;
+}
+
+nav ul li .fa-brands:hover{
+    color: #0b388d;
+}
+
+/* Footer */
