@@ -7,6 +7,8 @@
 /* Header */
 header {
     display: flex;
+    position: fixed;
+    width: 100%;
     background-color: #001221;
     height: 64px;
     justify-content: space-between;
@@ -45,10 +47,11 @@ main section{
     margin: 0 auto;
 }
 
-img{
+main section #myphoto{
     border-radius: 50%;
+    border: 5px #4a4e69 solid;
     width: 200px;
-    margin: 64px auto 32px;
+    margin: 80px auto 32px;
 }
 
 main section p{
@@ -59,7 +62,31 @@ main section p{
 
 /* Article */
 
-/* main article{
+main #article-skills{
+    margin-top: 100px;
     display: flex;
-} */
+    justify-content: center;
+    gap: 300px;    
+}
 
+/* Article Soft Skills*/
+
+main #article-skills div h2{
+    text-align: center;
+}
+
+main #article-skills div ul li:nth-child(1){
+    margin-top: 16px;
+}
+
+main #article-skills div ul li{
+    margin: 8px 0;
+    text-align: center;
+    list-style: none;
+}
+
+/* Article Hard Skills */
+
+main #article-skills img{
+    width: 50px;
+}
