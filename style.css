@@ -7,7 +7,7 @@
 /* Header */
 header {
     display: flex;
-    background-color: #001d3d;
+    background-color: #001221;
     height: 64px;
     justify-content: space-between;
 }
@@ -27,12 +27,14 @@ header nav ul{
 
 header nav ul li a{
     text-decoration: none;
+    font-weight: bolder;
 }
 
 /* Body */
 
 body{
-    background-color: #001233;
+    background-image: linear-gradient(to top, #001845, #001233, #001233, #000000);
+    
 }
 
 /* Main */
@@ -50,6 +52,7 @@ img{
 }
 
 main section p{
+    font-size: 24px;
     text-align: center;
     margin: 8px;
 }
