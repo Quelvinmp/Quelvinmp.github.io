@@ -1,0 +1,35 @@
+#color-pallete {
+  display: flex;
+  justify-content: space-between;
+}
+
+.color {
+  border: 1px solid black;
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  margin-top: 24px;
+}
+
+#clear-board {
+  margin: 16px 0;
+}
+
+#pixel-board {
+  max-width: fit-content;
+  max-height: fit-content;
+  display: flexbox;
+  border: 3px solid black;
+}
+
+.pixelFather {
+  display: flex;
+}
+
+.pixel {
+  box-sizing: border-box;
+  display: inline-block;
+  border: 1px solid black;
+  width: 40px;
+  height: 40px;
+}
