@@ -8,6 +8,7 @@ const savedPixels = [];
 
 const pixelBoard = document.getElementById('pixel-board');
 const pixel = document.getElementsByClassName('pixel');
+const pixelFather = document.getElementById('pixel-father');
 
 const initialColor = document.querySelector('.color');
 const initialSelectedColor = document.getElementsByClassName('selected');
@@ -82,6 +83,10 @@ const createPixelsInBoard = (size) => {
       const divColumn = document.createElement('div');
       divColumn.classList.add('pixel');
       divColumn.classList.add('pixelChild');
+      // divColumn.style.width = `${(500 / size)}px`;
+      // divColumn.style.height = `${(500 / size)}px`;
+      // divColumn.style.width = '40px';
+      // divColumn.style.height = '40px';
       divColumn.style.backgroundColor = 'white';
       divLine.appendChild(divColumn);
     }
