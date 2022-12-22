@@ -1,3 +1,37 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  background-color: #001221;
+  height: 64px;
+  justify-content: space-between;
+}
+
+header h1{
+  font-family: 'Condiment', cursive;
+  margin: 15px auto ;
+  color: white;
+}
+/* 
+header nav ul{
+  display: flex;
+  list-style: none;
+  gap: 50px;
+  margin-right: 50px;
+  height: 100%;
+  align-items: center
+}
+
+header nav ul li a{
+  text-decoration: none;
+  font-weight: bolder;
+} */
+
 #color-pallete {
   display: flex;
   justify-content: space-between;
@@ -32,4 +66,48 @@
   border: 1px solid black;
   width: 40px;
   height: 40px;
+}
+
+footer nav ul{
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-right: 64px;
+}
+
+footer nav ul li{
+    list-style: none;
+    text-decoration: none;
+}
+
+footer nav ul li .fa-brands{
+    font-size: 32px;
+    color: white
+}
+
+footer nav ul li .fa-brands:hover{
+    color: #0b388d;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #001221;
+  color: white;
+  height: 48px;
+  align-items: center;
+}
+
+footer p a{
+  align-self: center;
+  margin-left: 64px;
+  text-decoration: none;
+  color: white;
+}
+
+footer p a:hover {
+  color: #0b388d;
 }
