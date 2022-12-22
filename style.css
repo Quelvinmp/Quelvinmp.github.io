@@ -4,6 +4,7 @@
     box-sizing: border-box;
     color: white;
     /* font-size: 24px; */
+    font-family: 'Merriweather Sans', sans-serif;
 }
 
 #topo {
@@ -22,7 +23,8 @@ header {
 }
 
 header h1{
-    margin: auto 50px ;
+    font-family: 'Condiment', cursive;
+    margin: 16px 50px ;
 }
 
 header nav ul{
