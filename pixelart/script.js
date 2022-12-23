@@ -19,12 +19,30 @@ const btnVqv = document.getElementById('generate-board');
 
 const inputArtName = document.getElementById('art-name');
 const btnSaveArt = document.getElementById('save-art');
+
+const inputColor = document.getElementById('choose-color');
+const chosenColors = document.getElementsByClassName('chosen');
+const chosenArray = [];
 // /\ global elements /\
 
 const givePatternColorToPallete = (options) => {
   for (let index = 0; index < opitionOfColors.length; index += 1) {
     opitionOfColors[index].style.backgroundColor = options[index];
   }
+};
+
+const chooseColors = () => {
+  inputColor.addEventListener('change', () => {
+    if (chosenArray.length < 4) {
+      chosenArray.unshift(inputColor.value)
+    } else {
+      chosenArray.pop();
+      chosenArray.unshift(inputColor.value);
+    }
+    for (let index = 0; index < chosenArray.length; index += 1) {
+      chosenColors[index].style.backgroundColor = chosenArray[index];
+    }
+  });
 };
 
 const saveColors = () => {
@@ -171,10 +189,11 @@ const restoreSavedBoardLength = () => {
 
 window.onload = () => {
   if (localStorage.getItem('colorPalette')) {
-    restoreSavedColors();
+    restoreSavedColors(); // implementar paleta de cores selecionadas
   } else {
-    givePatternColorToPallete(colors);
+    givePatternColorToPallete(colors); // deixar em branco mesmo? decidir isso.
   }
+  chooseColors();
   activeButtonRandom();
   if (localStorage.getItem('pixelBoard')) {
     restoreSavedPaintedBoard();

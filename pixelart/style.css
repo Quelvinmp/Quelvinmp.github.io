@@ -63,6 +63,7 @@ main {
   width: 56px;
   height: 56px;
   border: 1px solid black;
+  border-radius: 50%;
 }
 
 #chosen-color-divs{
@@ -90,6 +91,7 @@ main {
   border: 1px solid black;
   width: 56px;
   height: 56px;
+  border-radius: 50%;
 }
 
 #clear-board {
