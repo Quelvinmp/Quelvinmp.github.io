@@ -1,4 +1,5 @@
 const opitionOfColors = document.getElementsByClassName('color');
+const randomColors = document.getElementsByClassName('random');
 const colors = ['black', 'rgb(29, 183, 32)', 'rgb(224, 242, 213)', 'rgb(4, 68, 34)'];
 
 const buttonRandom = document.getElementById('button-random-color');
@@ -31,6 +32,10 @@ const givePatternColorToPallete = (options) => {
   }
 };
 
+const saveChosenColors = () => {
+  localStorage.setItem('chosenColorPalette', JSON.stringify(chosenArray));
+};
+
 const chooseColors = () => {
   inputColor.addEventListener('change', () => {
     if (chosenArray.length < 4) {
@@ -42,6 +47,7 @@ const chooseColors = () => {
     for (let index = 0; index < chosenArray.length; index += 1) {
       chosenColors[index].style.backgroundColor = chosenArray[index];
     }
+    saveChosenColors();
   });
 };
 
@@ -51,15 +57,15 @@ const saveColors = () => {
 
 const activeButtonRandom = () => {
   buttonRandom.addEventListener('click', () => {
-    opitionOfColors[0].style.backgroundColor = 'black';
+    randomColors[0].style.backgroundColor = 'black';
     initialSelectedColor[0].classList.remove('selected');
-    opitionOfColors[0].classList.add('selected');
-    for (let index = 1; index < opitionOfColors.length; index += 1) {
+    randomColors[0].classList.add('selected');
+    for (let index = 1; index < randomColors.length; index += 1) {
       const r = Math.floor(Math.random() * 255);
       const g = Math.floor(Math.random() * 255);
       const b = Math.floor(Math.random() * 255);
       savedColors.push(`rgb(${r}, ${g}, ${b})`);
-      opitionOfColors[index].style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+      randomColors[index].style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     }
     saveColors();
     savedColors = ['black'];
@@ -69,7 +75,13 @@ const activeButtonRandom = () => {
 const restoreSavedColors = () => {
   const savedColor = JSON.parse(localStorage.getItem('colorPalette'));
   for (let index = 0; index < savedColor.length; index += 1) {
-    opitionOfColors[index].style.backgroundColor = savedColor[index];
+    randomColors[index].style.backgroundColor = savedColor[index];
+  }
+  if (JSON.parse(localStorage.getItem('chosenColorPalette'))) {
+    const chosenSavedColors = JSON.parse(localStorage.getItem('chosenColorPalette'));
+    for (let index = 0; index < chosenSavedColors.length; index += 1) {
+      chosenColors[index].style.backgroundColor = chosenSavedColors[index];
+    }
   }
 };
 
