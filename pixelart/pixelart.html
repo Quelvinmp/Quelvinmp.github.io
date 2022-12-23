@@ -19,7 +19,7 @@
 
   <header>
 
-    <h1>Quelvin Machado de Paula</h1>
+    <h1>Pixel Art</h1>
 
   </header>
 
@@ -28,13 +28,26 @@
     <section id="left-container">
 
       <h1 id="title">Paleta de Cores</h1>
-      <button id="button-random-color">Cores Aleatórias</button>
 
-      <section id="color-palette">
-        <div class="color"></div>
-        <div class="color"></div>
-        <div class="color"></div>
-        <div class="color"></div>
+      <section id="options-colors">
+        <div id="random-color-container">
+          <button id="button-random-color">Cores Aleatórias</button>
+          <section id="color-palette">
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+          </section>
+        </div>
+        <div id="chosen-color-parent">
+        <input type="color" id="choose-color">
+        <section id="chosen-color-divs">
+          <div class="chosen"></div>
+          <div class="chosen"></div>
+          <div class="chosen"></div>
+          <div class="chosen"></div>
+        </section>
+      </div>
       </section>
 
       <button id="clear-board">Limpar</button>
@@ -47,12 +60,14 @@
     <section id="center-container">
 
       <div>
-        <input type="file" id="change-bdimage">
+
         <section id="pixel-board"></section>
+
         <div>
           <input type="text" id="art-name">
-          <button id="save-art">Save Art</button>
+          <button id="save-art">Salvar Arte</button>
         </div>
+
       </div>
 
     </section>
@@ -62,6 +77,7 @@
 
 
     </section>
+
   </main>
 
   <footer>

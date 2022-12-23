@@ -17,6 +17,8 @@ const clearBoard = document.getElementById('clear-board');
 const boardSize = document.getElementById('board-size');
 const btnVqv = document.getElementById('generate-board');
 
+const inputArtName = document.getElementById('art-name');
+const btnSaveArt = document.getElementById('save-art');
 // /\ global elements /\
 
 const givePatternColorToPallete = (options) => {
@@ -84,8 +86,6 @@ const createPixelsInBoard = (size) => {
       divColumn.classList.add('pixelChild');
       divColumn.style.width = `${(292 / size)}px`;
       divColumn.style.height = `${(292 / size)}px`;
-      // divColumn.style.width = '40px';
-      // divColumn.style.height = '40px';
       divColumn.style.backgroundColor = 'white';
       divLine.appendChild(divColumn);
     }
