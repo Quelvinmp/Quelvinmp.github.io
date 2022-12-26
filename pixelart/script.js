@@ -22,6 +22,7 @@ const inputArtName = document.getElementById('art-name');
 const btnSaveArt = document.getElementById('save-art');
 const ulSavedArts = document.getElementById('saved-arts');
 const liSavedArts = document.getElementsByClassName('liArtName');
+const savedFinishedArt = []
 
 const inputColor = document.getElementById('choose-color');
 const chosenColors = document.getElementsByClassName('chosen');
@@ -38,6 +39,7 @@ const liSaveFinishedArt = () => {
       for (let index in liSavedArts) {
         if (liSavedArts[index].innerHTML === '') {
           liSavedArts[index].innerHTML = inputArtName.value;
+          localStorage.setItem(inputArtName.value, localStorage.getItem('pixelBoard'));
           inputArtName.value = '';
           break;
         }
@@ -107,11 +109,7 @@ const restoreSavedColors = () => {
 
 const savePaintedBoard = () => {
   for (let index = 0; index < pixel.length; index += 1) {
-    const positionAndColors = {
-      backgroundColor: pixel[index].style.backgroundColor,
-      position: index,
-    };
-    savedPixels.push(positionAndColors);
+    savedPixels.push(pixel[index].style.backgroundColor);
   }
   localStorage.setItem('pixelBoard', JSON.stringify(savedPixels));
 };
@@ -157,7 +155,7 @@ const restoreSavedPaintedBoard = () => {
   createPixelsInBoard(Math.sqrt(JSON.parse(localStorage.getItem('pixelBoard')).length));
   for (let index = 0; index < pixel.length; index += 1) {
     const restoredBoard = JSON.parse(localStorage.getItem('pixelBoard'))[index];
-    pixel[index].style.backgroundColor = restoredBoard.backgroundColor;
+    pixel[index].style.backgroundColor = restoredBoard;
     boardSize.placeholder = Math.sqrt(JSON.parse(localStorage.getItem('pixelBoard')).length);
   }
 };
@@ -221,7 +219,7 @@ const restoreSavedBoardLength = () => {
 
 window.onload = () => {
   if (localStorage.getItem('colorPalette')) {
-    restoreSavedColors(); // implementar paleta de cores selecionadas
+    restoreSavedColors();
   } else {
     givePatternColorToPallete(colors); // deixar em branco mesmo? decidir isso.
   }
