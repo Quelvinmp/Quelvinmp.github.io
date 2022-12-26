@@ -39,13 +39,22 @@ const liSaveFinishedArt = () => {
       for (let index in liSavedArts) {
         if (liSavedArts[index].innerHTML === '') {
           liSavedArts[index].innerHTML = inputArtName.value;
-          localStorage.setItem(inputArtName.value, localStorage.getItem('pixelBoard'));
+          const art = {
+            title: inputArtName.value,
+            board: localStorage.getItem('pixelBoard'),
+          }
+          savedFinishedArt.push(art)
+          localStorage.setItem('finishedArts', JSON.stringify(savedFinishedArt));
           inputArtName.value = '';
           break;
         }
       }
-    }
+    };
   });
+};
+
+const restoreLiFinishedArt = () => {
+
 };
 
 const givePatternColorToPallete = (options) => {
@@ -232,6 +241,9 @@ window.onload = () => {
     restoreSavedBoardLength();
   } else {
     createRulesToPixelsInBoard();
+  }
+  if (localStorage.getItem('finishedArts')) {
+    restoreLiFinishedArt();
   }
   createCustomPixelBoard();
   selectColor();
