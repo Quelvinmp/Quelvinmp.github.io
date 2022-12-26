@@ -24,7 +24,6 @@ const ulSavedArts = document.getElementById('saved-arts');
 const liSavedArts = document.getElementsByClassName('liArtName');
 let savedFinishedArt = [];
 
-
 const inputColor = document.getElementById('choose-color');
 const chosenColors = document.getElementsByClassName('chosen');
 const chosenArray = [];
@@ -45,6 +44,18 @@ const saveLocalStorageFinishedArt = (index) => {
   localStorage.setItem('finishedArts', JSON.stringify(savedFinishedArt));
 };
 
+const getSavedArt = () => {
+  const board = JSON.parse(localStorage.getItem('finishedArts'));
+  for (let index = 0; index < liSavedArts.length; index += 1) {
+    if (liSavedArts[index].innerHTML !== '') {
+      liSavedArts[index].addEventListener('click', () => {
+        clearPixelBoard();
+        restoreSavedPaintedBoard(JSON.parse(board[index].board));
+      });
+    }
+  }
+};
+
 const liSaveFinishedArt = () => {
   btnSaveArt.addEventListener('click', () => {
     if (inputArtName.value === '') {
@@ -55,6 +66,7 @@ const liSaveFinishedArt = () => {
           liSavedArts[index].innerHTML = inputArtName.value;
           saveLocalStorageFinishedArt(index);
           inputArtName.value = '';
+          getSavedArt();
           break;
         }
       }
@@ -172,12 +184,12 @@ const clearPixels = () => {
   });
 };
 
-const restoreSavedPaintedBoard = () => {
-  createPixelsInBoard(Math.sqrt(JSON.parse(localStorage.getItem('pixelBoard')).length));
+const restoreSavedPaintedBoard = (key) => {
+  createPixelsInBoard(Math.sqrt(key.length));
   for (let index = 0; index < pixel.length; index += 1) {
-    const restoredBoard = JSON.parse(localStorage.getItem('pixelBoard'))[index];
+    const restoredBoard = key[index];
     pixel[index].style.backgroundColor = restoredBoard;
-    boardSize.placeholder = Math.sqrt(JSON.parse(localStorage.getItem('pixelBoard')).length);
+    boardSize.placeholder = Math.sqrt(key.length);
   }
 };
 
@@ -247,7 +259,7 @@ window.onload = () => {
   chooseColors();
   activeButtonRandom();
   if (localStorage.getItem('pixelBoard')) {
-    restoreSavedPaintedBoard();
+    restoreSavedPaintedBoard(JSON.parse(localStorage.getItem('pixelBoard')));
   } else if (localStorage.getItem('boardSize')) {
     clearPixelBoard();
     restoreSavedBoardLength();
@@ -264,4 +276,5 @@ window.onload = () => {
   selectColor();
   paintPixel();
   clearPixels();
+  getSavedArt();
 };
