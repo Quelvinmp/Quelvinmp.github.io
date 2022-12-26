@@ -20,11 +20,31 @@ const btnVqv = document.getElementById('generate-board');
 
 const inputArtName = document.getElementById('art-name');
 const btnSaveArt = document.getElementById('save-art');
+const ulSavedArts = document.getElementById('saved-arts');
+const liSavedArts = document.getElementsByClassName('liArtName');
 
 const inputColor = document.getElementById('choose-color');
 const chosenColors = document.getElementsByClassName('chosen');
 const chosenArray = [];
+
+
 // /\ global elements /\
+
+const liSaveFinishedArt = () => {
+  btnSaveArt.addEventListener('click', () => {
+    if (inputArtName.value === '') {
+      window.alert('Adicione um Título para Conseguir Salvar!');
+    } else {
+      for (let index in liSavedArts) {
+        if (liSavedArts[index].innerHTML === '') {
+          liSavedArts[index].innerHTML = inputArtName.value;
+          inputArtName.value = '';
+          break;
+        }
+      }
+    }
+  });
+};
 
 const givePatternColorToPallete = (options) => {
   for (let index = 0; index < opitionOfColors.length; index += 1) {
@@ -219,4 +239,5 @@ window.onload = () => {
   selectColor();
   paintPixel();
   clearPixels();
+  liSaveFinishedArt();
 };

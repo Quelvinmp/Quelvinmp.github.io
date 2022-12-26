@@ -142,9 +142,41 @@ main {
 }
 
 #right-container{
+  margin-top: 64px;
   background-color: #dee2e6;
   width: 25vw;
   border-left: 2px solid gray;
+}
+
+#saved-arts-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8px;
+}
+
+#saved-arts-container > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#saved-arts-container > p {
+  font-weight: bolder;
+}
+
+#saved-arts{
+  padding: 8px;
+}
+
+.liArtName{
+  list-style: none;
+  margin-bottom: 10px;
+  font-family: monospace;
+}
+
+.checkboxArt{
+  margin-left: 8px;
 }
 
 footer nav ul{
