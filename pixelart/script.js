@@ -28,8 +28,34 @@ const inputColor = document.getElementById('choose-color');
 const chosenColors = document.getElementsByClassName('chosen');
 const chosenArray = [];
 
+const btnSelectArt = document.getElementById('select-art');
+const btnRemoveArt = document.getElementById('remove-art');
+const checkboxClass = document.getElementsByClassName('selectArt');
 
 // /\ global elements /\
+
+const createCheckbox = () => {
+  for (let index = 0; index < liSavedArts.length; index += 1) {
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.classList.add('selectArt');
+    if (liSavedArts[index].innerHTML !== '') {
+      liSavedArts[index].appendChild(checkbox);
+    }
+  }
+};
+
+const selectSavedArts = () => {
+  btnSelectArt.addEventListener('click', () => {
+    if (checkboxClass.length === 0) {
+      createCheckbox();
+    } else {
+      while (checkboxClass.length > 0) {
+        checkboxClass[0].remove()
+      }
+    }
+  });
+};
 
 const saveLocalStorageFinishedArt = (index) => {
   if (localStorage.getItem('finishedArts')) {
@@ -277,4 +303,5 @@ window.onload = () => {
   paintPixel();
   clearPixels();
   getSavedArt();
+  selectSavedArts();
 };
