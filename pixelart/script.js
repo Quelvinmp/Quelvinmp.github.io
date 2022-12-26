@@ -22,7 +22,8 @@ const inputArtName = document.getElementById('art-name');
 const btnSaveArt = document.getElementById('save-art');
 const ulSavedArts = document.getElementById('saved-arts');
 const liSavedArts = document.getElementsByClassName('liArtName');
-const savedFinishedArt = []
+let savedFinishedArt = [];
+
 
 const inputColor = document.getElementById('choose-color');
 const chosenColors = document.getElementsByClassName('chosen');
@@ -30,6 +31,19 @@ const chosenArray = [];
 
 
 // /\ global elements /\
+
+const saveLocalStorageFinishedArt = (index) => {
+  if (localStorage.getItem('finishedArts')) {
+    savedFinishedArt = [];
+    savedFinishedArt = JSON.parse(localStorage.getItem('finishedArts'));
+  }
+  const art = {
+    title: liSavedArts[index].innerHTML,
+    board: localStorage.getItem('pixelBoard'),
+  }
+  savedFinishedArt.push(art);
+  localStorage.setItem('finishedArts', JSON.stringify(savedFinishedArt));
+};
 
 const liSaveFinishedArt = () => {
   btnSaveArt.addEventListener('click', () => {
@@ -39,12 +53,7 @@ const liSaveFinishedArt = () => {
       for (let index in liSavedArts) {
         if (liSavedArts[index].innerHTML === '') {
           liSavedArts[index].innerHTML = inputArtName.value;
-          const art = {
-            title: inputArtName.value,
-            board: localStorage.getItem('pixelBoard'),
-          }
-          savedFinishedArt.push(art)
-          localStorage.setItem('finishedArts', JSON.stringify(savedFinishedArt));
+          saveLocalStorageFinishedArt(index);
           inputArtName.value = '';
           break;
         }
@@ -54,7 +63,10 @@ const liSaveFinishedArt = () => {
 };
 
 const restoreLiFinishedArt = () => {
-
+  const titles = JSON.parse(localStorage.finishedArts);
+  for (let index in titles) {
+    liSavedArts[index].innerHTML = titles[index].title;
+  }
 };
 
 const givePatternColorToPallete = (options) => {
@@ -244,10 +256,12 @@ window.onload = () => {
   }
   if (localStorage.getItem('finishedArts')) {
     restoreLiFinishedArt();
+    liSaveFinishedArt();
+  } else {
+    liSaveFinishedArt();
   }
   createCustomPixelBoard();
   selectColor();
   paintPixel();
   clearPixels();
-  liSaveFinishedArt();
 };
