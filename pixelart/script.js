@@ -26,11 +26,12 @@ let savedFinishedArt = [];
 
 const inputColor = document.getElementById('choose-color');
 const chosenColors = document.getElementsByClassName('chosen');
-const chosenArray = [];
+let chosenArray = [];
 
 const btnSelectArt = document.getElementById('select-art');
 const btnRemoveArt = document.getElementById('remove-art');
 const checkboxClass = document.getElementsByClassName('selectArt');
+const checked = document.getElementsByClassName('checked');
 
 // /\ global elements /\
 
@@ -39,6 +40,7 @@ const createCheckbox = () => {
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.classList.add('selectArt');
+    checkbox.id = 'checkboxArt'
     if (liSavedArts[index].innerHTML !== '') {
       liSavedArts[index].appendChild(checkbox);
     }
@@ -54,6 +56,26 @@ const selectSavedArts = () => {
         checkboxClass[0].remove()
       }
     }
+  });
+};
+
+const removeSelectedArts = () => {
+  btnRemoveArt.addEventListener('click', () => {
+    let count = 0;
+    savedFinishedArt = JSON.parse(localStorage.getItem('finishedArts'));
+    for (let index = checkboxClass.length - 1; index >= 0; index -= 1) {
+      if (checkboxClass[index].checked) {
+        count += 1;
+        checkboxClass[index].classList.add('checked');
+        checkboxClass[index].parentElement.remove();
+        savedFinishedArt.splice(index, 1);
+        localStorage.removeItem('finishedArts');
+        localStorage.setItem('finishedArts', JSON.stringify(savedFinishedArt));
+      }
+    } if (count === 0) {
+      window.alert('Selecione Alguma Arte para Poder Apagar!');
+    }
+
   });
 };
 
@@ -153,16 +175,17 @@ const activeButtonRandom = () => {
   });
 };
 
-const restoreSavedColors = () => {
+const restoreColorPalette = () => {
   const savedColor = JSON.parse(localStorage.getItem('colorPalette'));
   for (let index = 0; index < savedColor.length; index += 1) {
     randomColors[index].style.backgroundColor = savedColor[index];
   }
-  if (JSON.parse(localStorage.getItem('chosenColorPalette'))) {
-    const chosenSavedColors = JSON.parse(localStorage.getItem('chosenColorPalette'));
-    for (let index = 0; index < chosenSavedColors.length; index += 1) {
-      chosenColors[index].style.backgroundColor = chosenSavedColors[index];
-    }
+};
+
+const restoreCustomPalette = () => {
+  const chosenSavedColors = JSON.parse(localStorage.getItem('chosenColorPalette'));
+  for (let index = 0; index < chosenSavedColors.length; index += 1) {
+    chosenColors[index].style.backgroundColor = chosenSavedColors[index];
   }
 };
 
@@ -277,10 +300,13 @@ const restoreSavedBoardLength = () => {
 };
 
 window.onload = () => {
+  givePatternColorToPallete(colors);
   if (localStorage.getItem('colorPalette')) {
-    restoreSavedColors();
-  } else {
-    givePatternColorToPallete(colors); // deixar em branco mesmo? decidir isso.
+    restoreColorPalette();
+  }
+  if (localStorage.getItem('chosenColorPalette')) {
+    restoreCustomPalette();
+    chosenArray = JSON.parse(localStorage.getItem('chosenColorPalette'));
   }
   chooseColors();
   activeButtonRandom();
@@ -304,4 +330,5 @@ window.onload = () => {
   clearPixels();
   getSavedArt();
   selectSavedArts();
+  removeSelectedArts();
 };
