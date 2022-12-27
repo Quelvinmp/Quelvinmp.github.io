@@ -11,9 +11,11 @@ const pixelBoard = document.getElementById('pixel-board');
 const pixel = document.getElementsByClassName('pixel');
 
 const initialColor = document.querySelector('.color');
+initialColor.classList.add('selected');
 const initialSelectedColor = document.getElementsByClassName('selected');
 
 const clearBoard = document.getElementById('clear-board');
+const eraser = document.getElementById('eraser');
 
 const boardSize = document.getElementById('board-size');
 const btnVqv = document.getElementById('generate-board');
@@ -34,6 +36,14 @@ const checkboxClass = document.getElementsByClassName('selectArt');
 const checked = document.getElementsByClassName('checked');
 
 // /\ global elements /\
+
+const removePixelColor = () => {
+  eraser.addEventListener('click', () => {
+      eraser.style.backgroundColor = 'white';
+      initialSelectedColor[0].classList.remove('selected');
+      eraser.classList.add('selected');
+  });
+}
 
 const createCheckbox = () => {
   for (let index = 0; index < liSavedArts.length; index += 1) {
@@ -249,7 +259,6 @@ const clearPixelBoard = () => {
 };
 
 const selectColor = () => {
-  initialColor.classList.add('selected');
   for (let index = 0; index < opitionOfColors.length; index += 1) {
     opitionOfColors[index].addEventListener('click', () => {
       initialSelectedColor[0].classList.remove('selected');
@@ -331,4 +340,5 @@ window.onload = () => {
   getSavedArt();
   selectSavedArts();
   removeSelectedArts();
+  removePixelColor();
 };
