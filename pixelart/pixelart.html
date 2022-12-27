@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Condiment&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/fdfa1c951d.js" crossorigin="anonymous"></script>
+
+  <title>Pixel Art - By Quelvin</title>
+
+</head>
+
+<body>
+
+  <header>
+
+    <h1>Pixel Art</h1>
+
+  </header>
+
+  <main>
+
+    <section id="left-container">
+
+      <h1 id="title">Paleta de Cores</h1>
+
+      <section id="options-colors">
+        <div id="random-color-container">
+          <button id="button-random-color">Cores Aleatórias</button>
+          <section id="color-palette">
+            <div class="color random"></div>
+            <div class="color random"></div>
+            <div class="color random"></div>
+            <div class="color random"></div>
+          </section>
+        </div>
+        <div id="chosen-color-parent">
+          <input type="color" id="choose-color">
+          <section id="chosen-color-divs">
+            <div class="color chosen"></div>
+            <div class="color chosen"></div>
+            <div class="color chosen"></div>
+            <div class="color chosen"></div>
+          </section>
+        </div>
+      </section>
+
+      <div id="clear-container">
+        <button id="clear-board">Limpar</button>
+        <button id="eraser">Borracha</button>
+      </div>
+
+      <input type="number" id="board-size" min="1">
+      <button id="generate-board">VQV</button>
+
+    </section>
+
+    <section id="center-container">
+
+      <div>
+
+        <section id="pixel-board"></section>
+
+        <div>
+          <input type="text" id="art-name" placeholder="Escreva o Título da Arte" maxlength="14">
+          <button id="save-art">Salvar Arte</button>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="right-container">
+
+      <section id="saved-arts-container">
+        <p>Artes Salvas</p>
+        <div>
+
+          <div id="div-btn-saved-art">
+            <button id="select-art">Selecionar</button>
+            <button id="remove-art">Apagar</button>
+          </div>
+
+          <ul id="saved-arts">
+            <li class="liArtName"></li>
+            <li class="liArtName"></li>
+            <li class="liArtName"></li>
+            <li class="liArtName"></li>
+            <li class="liArtName"></li>
+            <li class="liArtName"></li>
+            <li class="liArtName"></li>
+            <li class="liArtName"></li>
+            <li class="liArtName"></li>
+            <li class="liArtName"></li>
+          </ul>
+
+        </div>
+      </section>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p><a href="https://quelvinmp.github.io/">Home</a></p>
+    <p>| Feito por Quelvin Machado de Paula - 2022 |</p>
+    <nav>
+
+      <ul>
+        <li><a href="https://www.linkedin.com/in/quelvin-machado-de-paula-2a7663207/" target="_blank"><i
+              class="fa-brands fa-linkedin"></i></a></li>
+        <li><a href="https://github.com/Quelvinmp" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+        <li><a href="https://www.facebook.com/quelvin.machado/" target="_blank"><i
+              class="fa-brands fa-facebook"></i></a></li>
+      </ul>
+    </nav>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
