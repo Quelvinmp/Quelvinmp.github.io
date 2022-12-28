@@ -243,6 +243,7 @@ const clearPixels = () => {
   clearBoard.addEventListener('click', () => {
     for (let index = 0; index < pixel.length; index += 1) {
       pixel[index].style.backgroundColor = 'white';
+      pixel[index].style.border = '1px solid black'
     }
     savedPixels.length = 0;
   });
