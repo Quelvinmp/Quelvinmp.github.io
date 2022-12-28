@@ -39,7 +39,7 @@ const checked = document.getElementsByClassName('checked');
 
 const removePixelColor = () => {
   eraser.addEventListener('click', () => {
-      eraser.style.backgroundColor = 'white';
+    eraser.style.backgroundColor = 'white';
       initialSelectedColor[0].classList.remove('selected');
       eraser.classList.add('selected');
   });
@@ -224,8 +224,8 @@ const createPixelsInBoard = (size) => {
       const divColumn = document.createElement('div');
       divColumn.classList.add('pixel');
       divColumn.classList.add('pixelChild');
-      divColumn.style.width = `${(292 / size)}px`;
-      divColumn.style.height = `${(292 / size)}px`;
+      divColumn.style.width = `${(225 / size)}px`;
+      divColumn.style.height = `${(225 / size)}px`;
       divColumn.style.backgroundColor = 'white';
       divLine.appendChild(divColumn);
     }
