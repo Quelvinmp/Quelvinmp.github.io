@@ -210,11 +210,6 @@ const paintPixel = () => {
   for (let index = 0; index < pixel.length; index += 1) {
     pixel[index].addEventListener('click', () => {
       pixel[index].style.backgroundColor = initialSelectedColor[0].style.backgroundColor;
-      if (initialSelectedColor[0] !== eraser) {
-        pixel[index].style.border = 'none';
-      } else {
-        pixel[index].style.border = '1px solid black';
-      }
       savedPixels.length = 0;
       savePaintedBoard();
     });
@@ -243,7 +238,6 @@ const clearPixels = () => {
   clearBoard.addEventListener('click', () => {
     for (let index = 0; index < pixel.length; index += 1) {
       pixel[index].style.backgroundColor = 'white';
-      pixel[index].style.border = '1px solid black'
     }
     savedPixels.length = 0;
   });
