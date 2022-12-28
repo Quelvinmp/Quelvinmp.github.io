@@ -210,6 +210,11 @@ const paintPixel = () => {
   for (let index = 0; index < pixel.length; index += 1) {
     pixel[index].addEventListener('click', () => {
       pixel[index].style.backgroundColor = initialSelectedColor[0].style.backgroundColor;
+      if (initialSelectedColor[0] !== eraser) {
+        pixel[index].style.border = 'none';
+      } else {
+        pixel[index].style.border = '1px solid black';
+      }
       savedPixels.length = 0;
       savePaintedBoard();
     });
@@ -224,8 +229,8 @@ const createPixelsInBoard = (size) => {
       const divColumn = document.createElement('div');
       divColumn.classList.add('pixel');
       divColumn.classList.add('pixelChild');
-      divColumn.style.width = `${(225 / size)}px`;
-      divColumn.style.height = `${(225 / size)}px`;
+      divColumn.style.width = `${(170 / size)}px`;
+      divColumn.style.height = `${(170 / size)}px`;
       divColumn.style.backgroundColor = 'white';
       divLine.appendChild(divColumn);
     }
